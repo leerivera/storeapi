@@ -1,3 +1,4 @@
+const { restart } = require('nodemon');
 const Product = require('../models/product');
 
 const getAllProductsStatic = async (req, res) => {
@@ -64,7 +65,14 @@ const getAllProducts = async (req, res) => {
 
     result = result.skip(skip.limit(limit));
 
-    
+    const products = await result;
+    res.status(200).json({ products, nbHits: products.length});
 
 
-}
+
+};
+
+module.exports = {
+    getAllProducts,
+    getAllProductsStatic,
+};
