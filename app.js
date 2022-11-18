@@ -11,5 +11,7 @@ const errorMiddleware = require('./middleware/error-handler')
 // middleware
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+    res.send('<h1>Store API</h1><a href="/api/v1/products">products route</a>');
+  });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
