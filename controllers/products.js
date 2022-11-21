@@ -18,6 +18,7 @@ const getAllProducts = async (req, res) => {
   if (name) {
     queryObject.name = { $regex: name, $options: 'i' };
   }
+  //new
   if (numericFilters) {
     console.log(queryObject)
     const operatorMap = {
